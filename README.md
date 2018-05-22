@@ -36,3 +36,9 @@ Look on the link on the end of this file to know how to use it, cuz it's a manua
     mv YosemiteSanFranciscoFont-master/*.ttf ~/.fonts/
     rm -rd YosemiteSanFranciscoFont-master
 ```
+
+## Spotify
+Very simple Python script to display artist name and track title on i3blocks.
+```bash
+    https://github.com/firatakandere/i3blocks-spotify
+```
