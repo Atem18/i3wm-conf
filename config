@@ -313,7 +313,7 @@ bindsym $mod+Return exec konsole
 ## bindsym $mod+shift+x exec ~/.config/i3/i3lock-extra -p 5 -m pixelize $lock_image
 #bindsym $mod+shift+x exec ~/.config/i3/i3lock-simple $lock_image
 ## bindsym $mod+control+x exec ~/.config/i3/i3lock-simple $lock_image  && sudo pm-hibernate
-bindsym $mod+shift+x exec ~/.config/i3/betterlockscreen -l
+bindsym $mod+shift+x exec /usr/bin/betterlockscreen -l
 
 # Printscreen / screenshoot
 

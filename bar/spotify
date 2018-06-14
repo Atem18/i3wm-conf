@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import dbus
 import os
@@ -20,7 +20,7 @@ try:
 
     spotify_iface = dbus.Interface(spotify, 'org.freedesktop.DBus.Properties')
     props = spotify_iface.Get('org.mpris.MediaPlayer2.Player', 'Metadata')
-    print(props['xesam:title'] + " - " + props['xesam:artist'][0])
+    print(str(props['xesam:title']) + " - " + str(props['xesam:artist'][0]))
     exit
 except dbus.exceptions.DBusException:
     exit
