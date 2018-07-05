@@ -348,10 +348,13 @@ bindsym $mod+p exec --no-startup-id i3-input -F 'exec "%s"' -P 'run> '
 
 bindsym $mod+Shift+v exec ~/.vim-anywhere/bin/run
 
-exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
+exec_always --no-startup-id killall -q compton
+exec_always --no-startup-id compton --config ~/.config/i3/compton.conf
 exec_always --no-startup-id xrandr --output HDMI1 --off --output VIRTUAL1 --off --output DP1 --mode 1920x1080 --pos 0x0 --rotate normal --output VGA1 --mode 1920x1080 --pos 1920x0 --rotate normal
-exec --no-startup-id dunst -config ~/.config/i3/dunstrc
-exec --no-startup-id parcellite
+exec_always --no-startup-id killall -q dunst
+exec_always --no-startup-id dunst -config ~/.config/i3/dunstrc
+exec_always --no-startup-id killall -q parcellite
+exec_always --no-startup-id parcellite
 
 exec --no-startup-id i3-msg 'workspace $ws1; exec google-chrome'
 exec --no-startup-id i3-msg 'workspace $ws2; exec slack'
