@@ -170,12 +170,10 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 
 # Assign app to a workspace
 # to find the class use xprop
-assign [class="google-chrome"] $ws1
+assign [class="Google-chrome"] $ws1
 assign [class="Slack"] $ws2
-assign [class="code"] $ws3
-#assign [class="jetbrains-idea-ce"] $ws3
-#assign [class="jetbrains-studio"] $ws4
-#assign [class="Rhythmbox"] $ws0
+assign [class="Code"] $ws3
+assign [class="Konsole"] $ws4
 
 # workspace default monitors
 workspace $ws1 output DP1
@@ -233,13 +231,18 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 hide_edge_borders both
 new_window none
 
+for_window [class="^.*"] border pixel 0
+#smart_gaps on
+
+gaps inner 15
+gaps outer 3
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
 bar {
   position          top
   output DP1
-  #status_command    i3status --config ~/.config/i3/bar.conf | ~/.config/i3/bar/i3wsbar -c "dzen2 -x %x -dock"
   status_command    i3blocks -c ~/.config/i3/i3blocks.conf
   font pango:Anonymous Pro for Powerline Regular 8
   strip_workspace_numbers yes
@@ -256,20 +259,16 @@ bar {
     	urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
   }
 }
+
 bar {
   position          top
   output VGA1
   status_command    i3blocks -c ~/.config/i3/i3blocks.second.conf
   font pango:Anonymous Pro for Powerline Regular 8
   strip_workspace_numbers yes
-#  mode hide
-#  hidden_state hide
-  modifier Mod4
-##  workspace_buttons false
-#
-#  tray_output LVDS1
-#  tray_padding 0
-#
+
+  tray_output none
+
   colors {
       background $bg-color
       separator #757575
@@ -361,3 +360,4 @@ exec --no-startup-id i3-msg 'workspace $ws2; exec slack'
 exec --no-startup-id i3-msg 'workspace $ws3; exec code'
 exec --no-startup-id i3-msg 'workspace $ws4; exec konsole'
 exec --no-startup-id i3-msg 'workspace $ws6; exec spotify'
+
