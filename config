@@ -174,6 +174,7 @@ assign [class="Google-chrome"] $ws1
 assign [class="Slack"] $ws2
 assign [class="Code"] $ws3
 assign [class="Konsole"] $ws4
+assign [class="Spotify"] $ws6
 
 # workspace default monitors
 workspace $ws1 output DP1
@@ -279,8 +280,6 @@ bar {
   }
 }
 
-# Network Manager
-exec --no-startup-id nm-applet
 # exec --no-startup-id wicd
 
 #set $images ~/Pictures
@@ -354,10 +353,11 @@ exec_always --no-startup-id killall -q dunst
 exec_always --no-startup-id dunst -config ~/.config/i3/dunstrc
 exec_always --no-startup-id killall -q parcellite
 exec_always --no-startup-id parcellite
+exec_always --no-startup-id killall -q nm-applet
+exec_always --no-startup-id nm-applet
 
 exec --no-startup-id i3-msg 'workspace $ws1; exec google-chrome'
 exec --no-startup-id i3-msg 'workspace $ws2; exec slack'
 exec --no-startup-id i3-msg 'workspace $ws3; exec code'
 exec --no-startup-id i3-msg 'workspace $ws4; exec konsole'
 exec --no-startup-id i3-msg 'workspace $ws6; exec spotify'
-
